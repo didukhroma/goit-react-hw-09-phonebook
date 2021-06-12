@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  align-items: center;
+}
+.navLink {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.navLinkActive {
+  color: #e84a5f;
+}

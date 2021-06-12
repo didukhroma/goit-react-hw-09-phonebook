@@ -1,0 +1,9 @@
+.button {
+  display: inline-block;
+  /* max-width: 110px; */
+  padding: 2px 5px;
+  max-height: 30px;
+}
+.button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,13 @@
+.text {
+  display: block;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+.input {
+  box-sizing: border-box;
+  margin: 0 0 15px;
+  padding: 0 10px;
+  width: 100%;
+  min-height: 30px;
+}
