@@ -5,7 +5,7 @@ import styles from './AuthNav.module.css';
 const AuthNav = () => (
   <div>
     <NavLink
-      to="/register"
+      to="/goit-react-hw-09-phonebook/register"
       exact
       className={styles.link}
       activeClassName={styles.activeLink}
@@ -13,7 +13,7 @@ const AuthNav = () => (
       Registration
     </NavLink>
     <NavLink
-      to="/login"
+      to="/goit-react-hw-09-phonebook/login"
       exact
       className={styles.link}
       activeClassName={styles.activeLink}
