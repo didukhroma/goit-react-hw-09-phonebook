@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getIsAuthenticated } from '../../redux/auth/auth-selectors';
 // import cx from 'classnames';
 import { navPath } from '../../Routes/routes';
 import styles from './Navigation.module.css';
 const { mainPage, contactsPage } = navPath;
-const Navigation = ({ isAuthenticated }) => {
+export default function Navigation() {
+  const isAuthenticated = useSelector(getIsAuthenticated);
   return (
     <nav className={styles.nav}>
       <NavLink
@@ -27,8 +29,4 @@ const Navigation = ({ isAuthenticated }) => {
       )}
     </nav>
   );
-};
-Navigation.propTypes = {
-  isAuthenticated: PropTypes.bool,
-};
-export default Navigation;
+}

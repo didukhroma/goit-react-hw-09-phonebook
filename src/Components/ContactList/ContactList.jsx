@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getFilteredContacts } from '../../redux/contacts/contacts-selectors';
 import ContactListItem from '../ContactListItem/ContactListItem';
 
-const ContactList = ({ contacts = [] }) => {
+export default function ContactList() {
+  const contacts = useSelector(getFilteredContacts);
   return (
     <ul>
       {contacts.map(contact => (
@@ -9,10 +11,4 @@ const ContactList = ({ contacts = [] }) => {
       ))}
     </ul>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.array,
-};
-
-export default ContactList;
+}

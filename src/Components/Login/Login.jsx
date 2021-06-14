@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import * as authOperations from '../../redux/auth/auth-operations';
 import { AuthForm } from '../AuthForm/AuthForm';
 
-const Login = ({ onLogin }) => {
-  const handleAuth = ({ email, password }) => {
-    onLogin({ email, password });
+export default function Login() {
+  const dispatch = useDispatch();
+
+  const handleAuth = userData => {
+    dispatch(authOperations.logIn(userData));
   };
+
   return (
     <div>
       <AuthForm cbAuth={handleAuth} />
     </div>
   );
-};
-Login.propTypes = {
-  onLogin: PropTypes.func,
-};
-export default Login;
+}

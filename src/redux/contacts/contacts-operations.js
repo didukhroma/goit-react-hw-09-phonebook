@@ -22,12 +22,7 @@ export const fetchContacts = () => async dispatch => {
   }
 };
 
-export const addContact = (name, number) => async dispatch => {
-  const contact = {
-    name,
-    number,
-  };
-
+export const addContact = contact => async dispatch => {
   dispatch(addContactRequest());
   try {
     const { data } = await axios.post('/contacts', contact);

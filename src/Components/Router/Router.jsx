@@ -14,24 +14,21 @@ const Router = () => {
     <div>
       <Suspense fallback={<h1>Loading...</h1>}>
         <Switch>
-          <PublicRoute exact path="/" component={MainPage} />
-          <PublicRoute
-            path="/register"
-            restricted
-            redirectTo="/contacts"
-            component={RegisterPage}
-          />
-          <PublicRoute
-            path="/login"
-            restricted
-            redirectTo="/contacts"
-            component={LoginPage}
-          />
-          <PrivateRoute
-            path="/contacts"
-            redirectTo="/login"
-            component={ContactsPage}
-          />
+          <PublicRoute exact path="/">
+            <MainPage />
+          </PublicRoute>
+
+          <PublicRoute path="/register" restricted redirectTo="/contacts">
+            <RegisterPage />
+          </PublicRoute>
+
+          <PublicRoute path="/login" restricted redirectTo="/contacts">
+            <LoginPage />
+          </PublicRoute>
+
+          <PrivateRoute path="/contacts" redirectTo="/login">
+            <ContactsPage />
+          </PrivateRoute>
         </Switch>
       </Suspense>
     </div>

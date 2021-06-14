@@ -1,25 +1,28 @@
-import { Component } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getCurrentUser } from '../../redux/auth/auth-operations';
 import AppBar from '../AppBar';
 import Container from '../Container';
 import Router from '../Router';
 
-class App extends Component {
-  componentDidMount() {
-    this.props.onGetCurrentUser();
-  }
-  render() {
-    return (
-      <>
-        <AppBar />
-        <Container>
-          <Router />
-        </Container>
-      </>
-    );
-  }
+export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
+
+  return (
+    <>
+      <AppBar />
+      <Container>
+        <Router />
+      </Container>
+    </>
+  );
 }
+
 App.propTypes = {
   onGetCurrentUser: PropTypes.func,
 };
-export default App;
