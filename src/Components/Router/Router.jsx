@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { Switch, Redirect } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 // import { routes } from '../../Routes/routes';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -14,33 +14,22 @@ const Router = () => {
     <div>
       <Suspense fallback={<h1>Loading...</h1>}>
         <Switch>
-          <PublicRoute exact path="/goit-react-hw-09-phonebook/">
+          <PublicRoute exact path="/">
             <MainPage />
           </PublicRoute>
 
-          <PublicRoute
-            path="/goit-react-hw-09-phonebook/register"
-            restricted
-            redirectTo="/goit-react-hw-09-phonebook/contacts"
-          >
+          <PublicRoute path="/register" restricted redirectTo="/contacts">
             <RegisterPage />
           </PublicRoute>
 
-          <PublicRoute
-            path="/goit-react-hw-09-phonebook/login"
-            restricted
-            redirectTo="/goit-react-hw-09-phonebook/contacts"
-          >
+          <PublicRoute path="/login" restricted redirectTo="/contacts">
             <LoginPage />
           </PublicRoute>
 
-          <PrivateRoute
-            path="/goit-react-hw-09-phonebook/contacts"
-            redirectTo="/goit-react-hw-09-phonebook/login"
-          >
+          <PrivateRoute path="/contacts" redirectTo="/login">
             <ContactsPage />
           </PrivateRoute>
-          <Redirect to="/goit-react-hw-09-phonebook/" />
+          {/* <Redirect to="/" /> */}
         </Switch>
       </Suspense>
     </div>
