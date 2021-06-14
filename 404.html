@@ -1,2 +1,5 @@
-<h1>Error</h1>
-<script>console.log('error')</script>
+<script>
+    const path = window.location.pathname.slice(1);
+    localStorage.setItem('path', path);
+    window.location.href='../';
+</script>
